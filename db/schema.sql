@@ -1,0 +1,16 @@
+-- db/schema.sql
+DROP DATABASE IF EXISTS summaries;
+
+CREATE DATABASE summaries;
+
+\c summaries
+
+DROP TABLE IF EXISTS articles;
+
+CREATE TABLE articles (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    summary VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

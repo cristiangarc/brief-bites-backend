@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const articleController = require('./controllers/articleController');
 
 // CONFIGURATION
 const app = express();
@@ -14,9 +15,11 @@ app.use(
 );
 app.use(express.json());
 
+app.use('/api/articles', articleController);
+
 // ROUTES
 app.get("/", (req, res) => {
-  res.json({ message: "created cookie" });
+  res.json({ message: "welcome" });
 });
 
 // 404 PAGE
