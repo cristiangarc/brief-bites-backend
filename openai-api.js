@@ -5,7 +5,7 @@ const OpenAI = require("openai");
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
-export async function main(abstract) {
+async function main(abstract) {
   const completion = await openai.chat.completions.create({
     messages: [
         { role: "system", content: "You are a helpful assistant." },
