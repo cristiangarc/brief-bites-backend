@@ -1,7 +1,9 @@
 -- db/schema.sql
+-- DROP DATABASE IF EXISTS summaries;
+
 DROP DATABASE IF EXISTS news;
 
-CREATE DATABASE news
+CREATE DATABASE news;
 
 \c news
 
@@ -23,4 +25,4 @@ CREATE TABLE summaries (
     article_id INTEGER NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-)l;
+);
