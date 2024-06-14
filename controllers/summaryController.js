@@ -18,3 +18,5 @@ summary.get('/:id/', async (req, res) => {
         res.status(500).json({ error: 'Error getting article' });
     };
 });
+
+module.exports = summary;
