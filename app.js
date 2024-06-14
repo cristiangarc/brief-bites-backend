@@ -2,6 +2,7 @@
 const cors = require("cors");
 const express = require("express");
 const articleController = require('./controllers/articleController');
+const summaryController = require('./controllers/summaryController');
 
 // CONFIGURATION
 const app = express();
@@ -16,6 +17,7 @@ app.use(
 app.use(express.json());
 
 app.use('/api/articles', articleController);
+app.use('/api/summaries', summaryController);
 
 // ROUTES
 app.get("/", (req, res) => {
