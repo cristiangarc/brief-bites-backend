@@ -2,6 +2,7 @@ const express = require('express');
 const article = express.Router();
 const db = require('../db/dbConfig');
 
+// get a specific article from DB by ID
 article.get('/:id/', async (req, res) => {
     const { id } = req.params;
     const numId = Number(id);
@@ -17,19 +18,19 @@ article.get('/:id/', async (req, res) => {
     });
 });
 
+// create a new article in the database
 article.post('/', async (req, res) => {
     const article = req.body;
 
     await db.one('INSERT INTO articles (title, summary) VALUES ($1, $2) RETURNING *', [article.title, article.summary])
    .then(data => {
-        console.log(data);
         console.log('Added an article');
         res.status(201).json(data);
-})
-.catch(err => {
-    console.error(err);
-    res.status(500).json({ error: 'Error creating article' });
-});
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'Error creating article' });
+    });
 })
 
 module.exports = article;
