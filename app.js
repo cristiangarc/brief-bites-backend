@@ -8,12 +8,12 @@ const summaryController = require('./controllers/summaryController');
 const app = express();
 
 // MIDDLEWARE
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Allow only this origin to access
-    credentials: true, // Allow cookies and headers to be sent along with the request
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // Allow only this origin to access
+//     credentials: true, // Allow cookies and headers to be sent along with the request
+//   })
+// );
 app.use(express.json());
 
 app.use('/api/articles', articleController);
