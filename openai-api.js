@@ -9,19 +9,12 @@ async function main(abstract) {
   const completion = await openai.chat.completions.create({
     messages: [
         { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: `Based on the abstract, ${abstract}, find the related news article and summarize it - maximum 400 words and understandable for an 8th grader and below` }
+        { role: "user", content: `Based on the abstract, ${abstract}, find the related news article and summarize it - maximum 300 words and understandable for an 8th grader and below` }
     ],
     model: "gpt-3.5-turbo",
   });
 
-  return completion.choices[0];
+  return completion.choices[0].message.content;
 }
-
-// const abs = 'The vikings were a great group of people';
-// let msg;
-// main(abs).then(data => {
-//     msg = data.message.content;
-//     console.log(msg);
-// });
 
 module.exports = main;
