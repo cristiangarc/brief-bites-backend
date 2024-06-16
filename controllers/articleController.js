@@ -34,7 +34,7 @@ article.get('/:id/', async (req, res) => {
 article.post('/', async (req, res) => {
     const article = req.body;
 
-    await db.one('INSERT INTO articles (title, abstract, summary_type) VALUES ($1, $2) RETURNING *', [article.title, article.abstract, article.summaryType])
+    await db.one('INSERT INTO articles (title, abstract, summary_type) VALUES ($1, $2, $3) RETURNING *', [article.title, article.abstract, article.summaryType])
    .then(data => {
         console.log('Added an article');
         res.status(201).json(data);
