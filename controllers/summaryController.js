@@ -11,7 +11,8 @@ summary.get('/:id/', async (req, res) => {
     try {
         const article = await db.one('SELECT * from articles WHERE id = $1', [numId]);
         const abstract = article.abstract;
-        const summary = await main(abstract);
+        const summary_type = abstract.summary_type;
+        const summary = await main(abstract, summary_type, summary_type);
         res.status(200).json(summary);
     } catch (err) {
         console.error(err);
