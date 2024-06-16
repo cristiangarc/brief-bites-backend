@@ -6,7 +6,6 @@ const db = require('../db/dbConfig');
 article.get('/', async (req, res) => {
     await db.any('SELECT * FROM articles')
    .then(data => {
-        console.log(data);
         res.status(200).json(data);
     })
    .catch(err => {
